@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit, ViewChild, ElementRef, OnChanges, SimpleChanges, ContentChild, TemplateRef, Renderer, OnDestroy } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, ViewChild, ElementRef, OnChanges, SimpleChanges, ContentChild, TemplateRef, Renderer2, OnDestroy } from '@angular/core';
 import { ClassField } from '@angular/compiler';
 import { FilterPipe } from './filter.pipe';
 
@@ -11,14 +11,14 @@ import { FilterPipe } from './filter.pipe';
     },
   })
 export class AlphabetFilterComponent implements OnInit, OnChanges, OnDestroy {
-  @ContentChild(TemplateRef) templateRef: TemplateRef<any>;
+  @ContentChild(TemplateRef, /* TODO: add static flag */ {}) templateRef: TemplateRef<any>;
 
-  @ViewChild('inputBody') public inputBodyEl: ElementRef;
-  @ViewChild('inputSearch') public inputSearchEl: ElementRef;
-  @ViewChild('searchList') public searchListEl: ElementRef;
-  @ViewChild('letterList') public letterList: ElementRef;
-  @ViewChild('indicator') public indicatorEl: ElementRef;
-  @ViewChild('content') public contentEl: ElementRef;
+  @ViewChild('inputBody', { static: true }) public inputBodyEl: ElementRef;
+  @ViewChild('inputSearch', { static: true }) public inputSearchEl: ElementRef;
+  @ViewChild('searchList', { static: true }) public searchListEl: ElementRef;
+  @ViewChild('letterList', { static: true }) public letterList: ElementRef;
+  @ViewChild('indicator', { static: true }) public indicatorEl: ElementRef;
+  @ViewChild('content', { static: true }) public contentEl: ElementRef;
 
   @Input() height: string = '300px';
   @Input() propAlphaOrder: string = '';
@@ -51,7 +51,7 @@ export class AlphabetFilterComponent implements OnInit, OnChanges, OnDestroy {
   private timer: any = null;
 
   constructor(private filter: FilterPipe,
-              private renderer: Renderer) {
+              private renderer: Renderer2) {
 
     for(var i = 0; i < 26; i++)
       this.alphabet.push(String.fromCharCode(97 + i).toUpperCase());

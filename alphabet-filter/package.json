@@ -1,7 +1,7 @@
 {
-  "name": "alphabet-filter",
-  "version": "1.0.4",
-  "repository": "https://github.com/ericferreira1992/alphabet-filter",
+  "name": "@rieset/alphabet-filter",
+  "version": "1.0.6",
+  "repository": "https://github.com/madbrothers/alphabet-filter",
   "keywords": [
     "angular",
     "ngx",
@@ -15,9 +15,9 @@
   "license": "MIT",
   "private": false,
   "peerDependencies": {
-    "@angular/core": ">=6.0.0",
-    "@angular/common": ">=6.0.0",
-    "@angular/forms": "^6.0.3"
+    "@angular/common": "^9.0.0",
+    "@angular/core": "^9.0.0",
+    "@angular/forms": "^9.0.0"
   },
   "ngPackage": {
     "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
