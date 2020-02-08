@@ -53,8 +53,8 @@ export class AlphabetFilterComponent implements OnInit, OnChanges, OnDestroy {
   constructor(private filter: FilterPipe,
               private renderer: Renderer2) {
 
-    for(var i = 0; i < 26; i++)
-      this.alphabet.push(String.fromCharCode(97 + i).toUpperCase());
+    for (var i = 0; i < 33; i++)
+      this.alphabet.push(String.fromCharCode(1072 + i).toUpperCase());
   }
 
   ngOnInit() {
@@ -128,7 +128,7 @@ export class AlphabetFilterComponent implements OnInit, OnChanges, OnDestroy {
 
       if (typeof this.propsSearch === 'string')
         this.propsSearch = [this.propsSearch];
-        
+
       this.objFilter = {};
       for(let prop of this.propsSearch) { this.objFilter[prop] = null; }
       this.setFilter();
@@ -225,7 +225,7 @@ export class AlphabetFilterComponent implements OnInit, OnChanges, OnDestroy {
   onScrollList(e) {
     if (!this.indicatorClicked) this.defineCurrentLetterElement();
   }
-  
+
   onMouseWheelContent(event: any) {
   }
 
@@ -266,13 +266,13 @@ export class AlphabetFilterComponent implements OnInit, OnChanges, OnDestroy {
     this.setFilter();
   }
 
-  orderBy() { 
+  orderBy() {
     return this.data.sort((a: any, b: any) => {
       if (a[this.propAlphaOrder] < b[this.propAlphaOrder])
         return -1;
       if (a[this.propAlphaOrder] > b[this.propAlphaOrder])
         return 1;
-          
+
       return 0;
     });
   }
